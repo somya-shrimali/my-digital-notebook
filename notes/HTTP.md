@@ -1,237 +1,111 @@
-# 🌐 HTTP (HyperText Transfer Protocol)
+# Day 1/90 Report
+
+## Objective
+
+To understand how a browser communicates with a web server using HTTP and observe real HTTP traffic in Burp Suite.
 
 ---
 
-# 📌 What is HTTP?
+## Topics Covered
 
-HTTP (HyperText Transfer Protocol) is the communication protocol that allows a web browser and a web server to exchange information through requests and responses.
-
-Simply put,
-
-👉 HTTP is the language used by browsers and websites to communicate.
-
----
-
-# 🤔 Why was HTTP created?
-
-Computers and web servers need a common language to communicate.
-
-HTTP defines rules for sending requests and receiving responses so that every browser can communicate with every website in the same way.
+- HTTP
+- Request & Response
+- Headers
+- HTTP Methods
+- Status Codes
+- OSI Model (Application Layer)
 
 ---
 
-# ⚙️ How HTTP Works
+## Practical Work
 
-Step 1:
-You type a website URL.
-
-↓
-
-Step 2:
-Your browser sends an HTTP Request.
-
-↓
-
-Step 3:
-The server receives the request.
-
-↓
-
-Step 4:
-The server processes it.
-
-↓
-
-Step 5:
-The server sends back an HTTP Response.
-
-↓
-
-Step 6:
-Your browser displays the webpage.
+- Installed and used Burp Suite
+- Opened Burp Browser
+- Captured HTTP requests
+- Explored HTTP History
+- Read PortSwigger HTTP Fundamentals
 
 ---
 
-# 📤 HTTP Request
+## Observations
 
-A Request is a message sent by the browser to the server asking for something.
-
-Examples:
-
-- Open homepage
-- Login
-- Search products
-- Download image
+- Every webpage generated multiple HTTP requests.
+- I found GET requests in HTTP History.
+- Each request contained headers like Host, User-Agent and Accept.
+- The server replied with status codes such as 200 OK.
+- HTTP traffic observed in Burp belongs to the Application Layer (Layer 7) of the OSI Model.
 
 ---
 
-# 📥 HTTP Response
+## Theory ↔ Practical Connection
 
-A Response is the server's reply to the browser.
+Reading about HTTP made more sense after seeing actual requests in Burp Suite.
 
-The response may contain:
-
-- HTML
-- CSS
-- JavaScript
-- Images
-- JSON Data
-- Status Code
+The OSI Model explained that HTTP works at Layer 7, and Burp allowed me to inspect real Layer 7 communication between the browser and the server.
 
 ---
 
-# 📦 HTTP Headers
+## What I Learned
 
-Headers are extra information sent along with every request and response.
-
-They tell the server things like:
-
-- Which browser is being used?
-- Which language is preferred?
-- Is the user logged in?
-- What type of data is expected?
-
-Think of headers like the address label on a courier package.
-
-Without the address, the package doesn't know where to go.
+Today I understood that HTTP is not just a definition—it is the actual communication happening whenever a website loads. Burp Suite helped me visualize requests and responses, making the theory much easier to understand.
 
 ---
 
-# 🚀 Common HTTP Methods
+## Challenges
 
-## GET
-
-Purpose:
-Retrieve information.
-
-Example:
-Opening Google homepage.
-
-Example URL:
-
-GET /index.html
+- Initially understanding all the headers.
+- Connecting networking theory with real HTTP traffic.
 
 ---
 
-## POST
+# Burp Suite Observations
 
-Purpose:
-Send new data to the server.
+## Website Tested
 
-Example:
-Logging into Instagram.
+https://portswigger.net
 
 ---
 
-## PUT
+## Request Details
 
-Purpose:
-Update existing data.
+Request Method :
 
-Example:
-Updating your profile picture.
+Host :
 
----
+Path :
 
-## DELETE
+HTTP Version :
 
-Purpose:
-Delete existing data.
+User-Agent :
 
-Example:
-Deleting an email.
+Accept :
 
----
+Accept-Encoding :
 
-# 📊 Common HTTP Status Codes
+Accept-Language :
 
-200 → OK (Success)
+Cookie :
 
-201 → Created
+Content-Type : (if present)
 
-301 → Moved Permanently
-
-302 → Redirect
-
-400 → Bad Request
-
-401 → Unauthorized
-
-403 → Forbidden
-
-404 → Not Found
-
-500 → Internal Server Error
-
-503 → Service Unavailable
+Content-Length : (if present)
 
 ---
 
-# 🍕 Real Life Example
+## Response Details
 
-Imagine ordering pizza.
+Status Code :
 
-You → Customer
+Server :
 
-Waiter → HTTP
+Content-Type :
 
-Kitchen → Server
+Response Length :
 
-Pizza → Response
-
-You tell the waiter:
-
-"I want one Margherita Pizza."
-
-↓
-
-The waiter carries your request.
-
-↓
-
-The kitchen prepares it.
-
-↓
-
-The waiter brings the pizza back.
-
-That's exactly how HTTP works.
+Set-Cookie : (if present)
 
 ---
 
-# 💼 Interview Explanation (30 Seconds)
 
-HTTP stands for HyperText Transfer Protocol.
 
-It is an application-layer protocol that allows communication between clients (browsers) and servers using a request-response model.
 
-The browser sends an HTTP request, the server processes it, and returns an HTTP response containing data like HTML, JSON, images, or status codes.
-
----
-
-# 🔬 Observe in Burp Suite
-
-While looking at HTTP History, try finding:
-
-✅ Request Method
-
-✅ Host
-
-✅ Path
-
-✅ User-Agent
-
-✅ Accept
-
-✅ Cookie
-
-✅ Response Status
-
----
-
-# 📝 Questions I Still Have
-
-- Why do websites use HTTPS instead of HTTP?
-- What exactly is a Cookie?
-- Why are Headers important?
-- What is HTTP/2?
