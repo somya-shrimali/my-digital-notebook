@@ -1,0 +1,55 @@
+🛡️ CyberBloom AI
+AI-Powered Cybersecurity Intelligence Platform
+AI-powered cybersecurity platform leveraging Gemini AI for intelligent threat analysis, security insights, and real-time recommendations.
+
+🌐 Live Demo • 📂 Repository
+
+🚀 Overview
+CyberBloom AI is a modern cybersecurity platform designed to help users analyze potential security threats through AI-driven insights. The application integrates Google's Gemini AI to provide intelligent security recommendations, threat analysis, and interactive user experiences.
+
+✨ Features
+🛡️ AI-Powered Threat Analysis
+⚡ Real-Time Security Insights
+🤖 Gemini AI Integration
+📊 Interactive Dashboard
+📱 Fully Responsive UI
+☁️ Cloud Deployment with Render
+🏗️ Tech Stack
+Category	Technology
+Frontend	React, TypeScript, Vite
+Backend	Node.js, Express.js
+AI	Google Gemini API
+Deployment	Render
+📂 Project Structure
+cyberbloom-ai
+│
+├── src/
+│   ├── components/
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── assets/
+├── server.ts
+├── package.json
+├── render.yaml
+└── README.md
+⚙️ Installation
+git clone https://github.com/somya-shrimali/cyberbloom-ai.git
+
+cd cyberbloom-ai
+
+npm install
+
+npm run dev
+🌐 Live Deployment
+🔗 Open CyberBloom AI
+
+🎯 Objectives
+Enhance cybersecurity awareness through AI.
+Provide intelligent threat analysis.
+Demonstrate practical Gemini AI integration.
+Showcase modern full-stack development skills.
+👩‍💻 Developer
+Somya Shrimali
+B.Tech Student | Cybersecurity & AI Enthusiast
+GitHub Profile
