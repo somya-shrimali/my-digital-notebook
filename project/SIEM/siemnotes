@@ -1,21 +1,29 @@
-Bohot hi badiya idea hai! GitHub README ke liye **Markdown format** me ek clear, structured aur beginner-friendly notes ka template tayar kar diya hai. Ise aap direct apne GitHub repository ke `README.md` file me copy-paste kar sakte hain.
 
----
+```markdown
+# 🛡️ SIEM, Virtualization & Wazuh SOC Home Lab — Ultimate Beginner & Hands-On Guide
 
-# 🛡️ SIEM, Virtualization & Wazuh Setup — A Beginner Cybersecurity Engineer's Guide
+Welcome to this comprehensive, end-to-end guide on Virtualization, SIEM fundamentals, and setting up a fully functional **Wazuh SIEM / SOC Home Lab**. 
 
-Welcome to this comprehensive guide on SIEM, Virtualization concepts, and setting up a **Wazuh SIEM Lab**. This guide is structured specially for beginners and aspiring Cybersecurity / SOC Engineers!
+This repository covers everything from basic cybersecurity concepts to step-by-step installation, troubleshooting memory/service errors, deploying Windows agents, and executing live threat detection attacks.
 
 ---
 
 ## 📌 Table of Contents
 
-1. [Virtualization Fundamentals](https://www.google.com/search?q=%231-virtualization-fundamentals)
-2. [What is SIEM?](https://www.google.com/search?q=%232-what-is-siem)
-3. [How SIEM Works (Architecture & Flow)](https://www.google.com/search?q=%233-how-siem-works)
-4. [OS Comparison: Ubuntu vs Kali Linux vs Wazuh](https://www.google.com/search?q=%234-os-comparison)
-5. [In-Built Features of Wazuh](https://www.google.com/search?q=%235-in-built-features-of-wazuh)
-6. [Quick Deployment Guide (VirtualBox OVA)](https://www.google.com/search?q=%236-quick-deployment-guide)
+1. [Virtualization Fundamentals](#1-virtualization-fundamentals)
+2. [What is SIEM?](#2-what-is-siem)
+3. [How SIEM Works (Architecture & Flow)](#3-how-siem-works)
+4. [OS Comparison: Ubuntu vs Kali Linux vs Wazuh](#4-os-comparison-ubuntu-vs-kali-linux-vs-wazuh)
+5. [In-Built Features of Wazuh](#5-in-built-features-of-wazuh)
+6. [Hypervisor Network Configuration (Bridged Adapter)](#6-hypervisor-network-configuration-bridged-adapter)
+7. [Wazuh Manager / OVA Quick Deployment Guide](#7-wazuh-manager--ova-quick-deployment-guide)
+8. [Phase-by-Phase Setup & Troubleshooting](#8-phase-by-phase-setup--troubleshooting)
+   * [Phase 1: Memory Optimization & Timeout Fixes](#phase-1-memory-optimization--timeout-fixes)
+   * [Phase 2: Password & OpenSearch Security Index Reset](#phase-2-password--opensearch-security-index-reset)
+   * [Phase 3: Deploying Wazuh Agent on Windows Client (`pc1`)](#phase-3-deploying-wazuh-agent-on-windows-client-pc1)
+   * [Phase 4: Agent Connectivity Troubleshooting](#phase-4-agent-connectivity-troubleshooting)
+9. [Live Threat Detection & Attack Simulation](#9-live-threat-detection--attack-simulation)
+10. [Key Takeaways & SOC Analyst Learnings](#10-key-takeaways--soc-analyst-learnings)
 
 ---
 
@@ -53,10 +61,12 @@ Before diving into SIEM, let's understand the core terminology of virtualization
 
 A SIEM solution collects, normalizes, correlates, and visualizes security logs.
 
+
 ```
+
 [ Endpoints / Target VMs ]  ---> (Raw Logs) --->  [ Wazuh Agent ]
-                                                          |
-                                                          v
+|
+v
 [ Wazuh Dashboard (Web UI) ]  <--- (Alerts) <---  [ Wazuh Manager Engine ]
 
 ```
@@ -95,33 +105,210 @@ Wazuh comes pre-installed with all central components out of the box:
 * 🗄️ **Wazuh Indexer:** High-performance database for storing logs and alerts.
 * 📊 **Wazuh Dashboard:** Web interface for monitoring, reporting, and visualization.
 * 📦 **Out-of-the-Box Capabilities:**
-* **File Integrity Monitoring (FIM):** Detects unauthorized file modifications.
-* **Vulnerability Detection:** Scans endpoints for unpatched CVEs.
-* **Compliance Monitoring:** Automated checks for PCI-DSS, NIST, SOC2, and HIPAA standards.
-* **Active Response:** Automatically blocks attacker IPs upon threat detection.
-
-
+  * **File Integrity Monitoring (FIM):** Detects unauthorized file modifications.
+  * **Vulnerability Detection:** Scans endpoints for unpatched CVEs.
+  * **Compliance Monitoring:** Automated checks for PCI-DSS, NIST, SOC2, HIPAA, and TSC standards.
+  * **Active Response:** Automatically blocks attacker IPs upon threat detection.
 
 ---
 
-## 6. Quick Deployment Guide (VirtualBox OVA)
+## 6. Hypervisor Network Configuration (Bridged Adapter)
 
-1. **Download OVA:** Download the official [Wazuh OVA Appliance](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html) onto your Windows host machine.
-2. **Import to VirtualBox:** Open VirtualBox $\rightarrow$ **File > Import Appliance** $\rightarrow$ Select the downloaded `.ova` file.
-3. **Configure VirtualBox Settings:**
-* Go to **Settings > Display** $\rightarrow$ Set **Graphics Controller** to `VMSVGA` (prevents screen freezing).
-* Go to **Settings > System > Motherboard** $\rightarrow$ Enable **Hardware Clock in UTC Time**.
+By default, VirtualBox and VMware set new VMs to **NAT Mode**. In NAT mode, the VM can access the internet, but your host machine cannot connect to the VM's web dashboard or endpoints.
+
+### VirtualBox
+1. Right-click your Wazuh VM → **Settings** → **Network** tab.
+2. Change "Attached to:" from **NAT** to **Bridged Adapter**.
+3. Click **OK**.
+
+### VMware Workstation / Player
+1. Right-click your Wazuh VM → **Settings** → **Network Adapter**.
+2. Change connection from **NAT** to **Bridged**.
+3. Click **OK**.
+
+---
+
+## 7. Wazuh Manager / OVA Quick Deployment Guide
+
+1. **Download OVA:** Download the official [Wazuh OVA Appliance](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html).
+2. **Import Appliance:** Open VirtualBox/VMware → **File > Import Appliance** → Select downloaded `.ova` file.
+3. **Configure Settings:**
+   * **VirtualBox Display:** Set Graphics Controller to `VMSVGA` (prevents screen freezing).
+   * **System Clock:** Enable *Hardware Clock in UTC Time*.
+4. **Boot & Find IP:**
+   * Login credentials: `wazuh-user` / `wazuh` (or `admin` / `admin`).
+   * Get IP address using terminal command:
+     ```bash
+     ip a   # or ifconfig
+     ```
+5. **Access Dashboard:**
+   * Open browser: `https://<YOUR_WAZUH_VM_IP>`
+   * Bypass SSL warning (*Advanced -> Proceed to site*).
+
+---
+
+## 8. Phase-by-Phase Setup & Troubleshooting
+
+### Phase 1: Memory Optimization & Timeout Fixes
+If the dashboard shows *"Wazuh dashboard server is not ready yet"*, the database (OpenSearch/Indexer) crashed due to low host RAM.
+
+#### Fix 1: Restrict Java Heap Memory to 1GB
+Open JVM options file:
+```bash
+sudo nano /etc/wazuh-indexer/jvm.options
+
+```
+
+Change memory allocations to:
+
+```text
+-Xms1g
+-Xmx1g
+
+```
+
+#### Fix 2: Extend Startup Timeout (For Slower HDDs)
+
+Open startup override file:
+
+```bash
+sudo nano /etc/systemd/system/wazuh-indexer.service.d/startup-timeout.conf
+
+```
+
+Add timeout value:
+
+```text
+[Service]
+TimeoutStartSec=1200
+
+```
+
+Apply rules and enable auto-start on boot:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable wazuh-indexer wazuh-manager wazuh-dashboard
+sudo reboot
+
+```
+
+---
+
+### Phase 2: Password & OpenSearch Security Index Reset
+
+If `admin`/`admin` credentials return an *Invalid Username or Password* error, force sync the security index and reset passwords:
+
+```bash
+sudo su
+
+# Force Sync OpenSearch / Wazuh Security Index
+/usr/share/wazuh-indexer/plugins/opensearch-security/tools/securityadmin.sh \
+-cd /etc/wazuh-indexer/opensearch-security/ \
+-icl -nhnv \
+-cacert /etc/wazuh-indexer/certs/root-ca.pem \
+-cert /etc/wazuh-indexer/certs/admin.pem \
+-key /etc/wazuh-indexer/certs/admin-key.pem
+
+# Reset Admin Password
+/usr/share/wazuh-indexer/plugins/opensearch-security/tools/wazuh-passwords-tool.sh -u admin -p "Secret123@"
+
+# Restart Services
+systemctl restart wazuh-indexer wazuh-dashboard
+
+```
+
+---
+
+### Phase 3: Deploying Wazuh Agent on Windows Client (`pc1`)
+
+1. Open Wazuh Web Dashboard (`https://<WAZUH_VM_IP>`).
+2. Navigate to **Deploy new agent**:
+* **Target OS:** Windows
+* **Server Address:** `<YOUR_WAZUH_VM_IP>` (e.g., `10.103.199.76`)
+* **Agent Name:** `pc1`
 
 
-4. **Launch & Login Credentials:**
-* **CLI / SSH Login:** `user: wazuh-user` | `password: wazuh` (Use `sudo -i` for root).
-* **Dashboard Access:** Open host web browser $\rightarrow$ Go to `https://<WAZUH_SERVER_IP>`
-* **Dashboard Login:** `user: admin` | `password: admin`
+3. Open **Windows PowerShell as Administrator** on your Windows PC and execute:
+```powershell
+Invoke-WebRequest -Uri [https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x-1.msi](https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x-1.msi) -OutFile ${env:tmp}\wazuh-agent.msi; msiexec.exe /i${env:tmp}\wazuh-agent.msi /q WAZUH_MANAGER='10.103.199.76' WAZUH_AGENT_NAME='pc1'
+
+```
 
 
+4. Start the Agent Service:
+```powershell
+NET START Wazuh
+
+```
+
+
+5. On the Wazuh Dashboard, verify that `pc1` status shows **Active** (Green dot).
+
+---
+
+### Phase 4: Agent Connectivity Troubleshooting
+
+If the agent reports `never connected` or `disconnected`:
+
+1. **Verify Network Ping:**
+```cmd
+ping <WAZUH_VM_IP>
+
+```
+
+
+2. **Check Port Ingestion (Port 1514 & 1515):**
+```powershell
+Test-NetConnection -ComputerName <WAZUH_VM_IP> -Port 1514
+
+```
+
+
+3. **Restart Agent Service:**
+```powershell
+Restart-Service -Name Wazuh
+
+```
+
+
+4. **Check Internal Agent Logs:**
+Open file `C:\Program Files (x86)\ossec-agent\ossec.log` to inspect errors.
+
+---
+
+## 9. Live Threat Detection & Attack Simulation
+
+To confirm end-to-end telemetry collection, execute a simulated **Logon Failure Attack**:
+
+1. Open PowerShell on the monitored Windows machine (`pc1`).
+2. Run the failed credential request command:
+```powershell
+runas /user:fakeuser notepad.exe
+
+```
+
+
+3. Enter an incorrect password when prompted.
+4. Open **Wazuh Dashboard** → **Security operations** → **Security events**.
+5. Set the time range filter to **Last 15 minutes**.
+6. **Result:** Wazuh catches the event real-time and logs a **Windows: Failed logon attempt / Authentication Failure** alert!
+
+---
+
+## 10. Key Takeaways & SOC Analyst Learnings
+
+* **SIEM Architecture:** Hands-on experience with central managers, indexers, and agent telemetry pipelines.
+* **Network & Hypervisor Debugging:** Understanding Bridged vs NAT networks and firewall port requirements (`1514`/`1515`/`443`).
+* **Resource Management:** Optimizing Java Heap memory (`jvm.options`) for enterprise databases in virtual lab environments.
+* **Blue Team Operations:** Simulating threats and analyzing security log events inside a live SOC Dashboard.
 
 ---
 
 ### 📝 Author Note
 
-*Created while building a hands-on SOC / SIEM Lab. Feel free to star ⭐ this repository if you found it helpful!*
+*Created while building a hands-on Cybersecurity / SOC Home Lab. Feel free to star ⭐ this repository if you found it helpful!*
+
+```
+
+```
