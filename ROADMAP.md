@@ -1,472 +1,75 @@
-# 🛡️ Cybersecurity Roadmap
+# Roadmap Structure
 
-> **Goal:** Build the knowledge and practical skills required to become a job-ready Cybersecurity Analyst / SOC Analyst by following a structured learning path.
+The bootcamp follows a progressive learning path where each module builds upon the previous one. The sequence is designed to ensure strong fundamentals before moving into advanced security domains.
 
----
+### Module Flow
 
-# 1. IT & Computer Fundamentals
+**M1 → Foundations**
+- Build networking, Linux, Windows, Python, and cybersecurity fundamentals.
+- Establish the knowledge required for all subsequent modules.
 
-* Computer Hardware
+**M2 → Web Fundamentals & Burp Suite**
+- Learn how web applications communicate.
+- Understand HTTP, authentication, APIs, and traffic interception before studying vulnerabilities.
 
-  * CPU
-  * RAM
-  * Motherboard
-  * Storage (HDD/SSD)
-  * BIOS & UEFI
-  * Boot Process
+**M3 → Web Application Security**
+- Apply web fundamentals to hands-on vulnerability assessment.
+- Perform OWASP Top 10 testing using Burp Suite and PortSwigger labs.
 
-* Operating Systems
+**M4 → Security Operations & SIEM**
+- Transition from offensive concepts to defensive security.
+- Learn log analysis, SIEM workflows, threat monitoring, and SOC operations.
 
-  * Windows Architecture
-  * Linux Architecture
-  * Processes & Threads
-  * Memory Management
-  * File Systems (NTFS, FAT32, EXT4)
-  * System Calls
+**M5 → Incident Response & Threat Intelligence**
+- Understand how security incidents are investigated and contained.
+- Learn triage, IOC analysis, digital forensics basics, and threat intelligence before moving to cloud environments.
 
-* File Systems
+**M6 → Cloud Security & DevSecOps**
+- Apply security principles to modern cloud infrastructure and DevSecOps pipelines.
+- Cover AWS security, Docker, CI/CD security, SAST, DAST, and automation.
 
-  * Files & Directories
-  * Partitions
-  * Mounting
-  * File Permissions
-  * Symbolic Links
-
----
-
-# 2. Networking Fundamentals
-
-* Networking Basics
-* Network Types (LAN, WAN, MAN, PAN)
-* Network Topologies
-* OSI Model
-* TCP/IP Model
-* IPv4 & IPv6
-* MAC Address
-* IP Addressing
-* Subnetting
-* CIDR
-* ARP
-* ICMP
-* DNS
-* DHCP
-* NAT
-* Routing
-* Switching
-* Firewalls
-* VPN
-
-### Protocols
-
-* HTTP
-* HTTPS
-* FTP
-* SSH
-* Telnet
-* SMTP
-* POP3
-* IMAP
-* DNS
-* DHCP
-* SNMP
-* SMB
-* LDAP
-
-### Networking Tools
-
-* Wireshark
-* Cisco Packet Tracer
-* tcpdump
-* Netcat
-* traceroute
-* ping
+**M7 → Career Preparation**
+- Consolidate all acquired skills into a professional portfolio.
+- Prepare resumes, GitHub, LinkedIn, technical interviews, and job applications.
 
 ---
 
-# 3. Linux
+# Learning Strategy
 
-* Linux Installation
-* Linux File System
-* Terminal Basics
-* Shell
-* Navigation Commands
-* File Management
-* Text Processing
-* Permissions
-* Ownership
-* Users & Groups
-* Processes
-* Services
-* Package Management
-* Environment Variables
-* Cron Jobs
-* SSH
-* Bash Scripting
-* Log Files
-* System Monitoring
+The program follows a practical, documentation-first approach.
+
+- Theory before hands-on implementation.
+- Build strong fundamentals before offensive security.
+- Learn offensive security before defensive monitoring.
+- Complete Incident Response before Cloud Security to better understand cloud threat scenarios.
+- Prioritize practical labs over passive learning.
+- Focus on documentation alongside technical skills.
 
 ---
 
-# 4. Cybersecurity Fundamentals
+# Continuous Practice
 
-* CIA Triad
-* AAA
-* Risk
-* Threat
-* Vulnerability
-* Exploit
-* Attack Surface
-* Defense in Depth
-* Zero Trust
-* Least Privilege
-* Security Policies
-* Risk Assessment
-* Security Controls
+- Daily theory study throughout the bootcamp.
+- Daily Burp Suite practice during **Modules 2–3**.
+- Weekly Python automation exercises during **Modules 1–6**.
+- Weekly GitHub commits throughout **Modules 1–7**.
+- Continuous technical note-taking and lab documentation.
+- End-of-module revision and mini-projects.
+- Build projects progressively instead of waiting until the end.
 
 ---
 
-# 5. Threat Landscape
-
-* Malware
-* Virus
-* Worm
-* Trojan
-* Spyware
-* Adware
-* Rootkits
-* Ransomware
-* Botnets
-* DDoS
-* Insider Threats
-* Social Engineering
-* Phishing
-* Spear Phishing
-* Whaling
-* Business Email Compromise
-
----
-
-# 6. Security Frameworks
-
-* NIST Cybersecurity Framework
-* ISO 27001
-* CIS Controls
-* MITRE ATT&CK
-* Cyber Kill Chain
-* OWASP
-* CVE
-* CVSS
-
----
-
-# 7. OSINT & Reconnaissance
-
-* Passive Reconnaissance
-* Active Reconnaissance
-* Google Dorking
-* Shodan
-* Censys
-* Whois
-* DNS Enumeration
-* theHarvester
-* Recon-ng
-* Maltego
-
----
-
-# 8. Ethical Hacking
-
-* Hacking Methodology
-* Reconnaissance
-* Enumeration
-* Vulnerability Assessment
-* Exploitation
-* Privilege Escalation
-* Persistence
-* Post Exploitation
-* Reporting
-* Responsible Disclosure
-
----
-
-# 9. Kali Linux
-
-* Kali Tools
-* Package Management
-* Tool Installation
-* Customization
-
-### Tools
-
-* Nmap
-* Gobuster
-* Dirbuster
-* Nikto
-* Hydra
-* John the Ripper
-* Hashcat
-* sqlmap
-* Metasploit
-* Netcat
-* Burp Suite
-* Wireshark
-
----
-
-# 10. Vulnerability Assessment
-
-* Nessus
-* OpenVAS
-* CVE Analysis
-* CVSS Scoring
-* Patch Management
-* Risk Prioritization
-
----
-
-# 11. Web Application Security
-
-* HTTP Fundamentals
-* Sessions
-* Cookies
-* Authentication
-* Authorization
-
-### OWASP Top 10
-
-* Broken Access Control
-* Cryptographic Failures
-* Injection (SQL Injection)
-* XSS
-* CSRF
-* SSRF
-* Security Misconfiguration
-* Vulnerable Components
-* Identification & Authentication Failures
-* Logging & Monitoring Failures
-
-### Practical Tools
-
-* Burp Suite
-* OWASP Juice Shop
-* DVWA
-* PortSwigger Labs
-
----
-
-# 12. Penetration Testing
-
-* PTES Methodology
-* Scope Definition
-* Reconnaissance
-* Enumeration
-* Exploitation
-* Privilege Escalation
-* Persistence
-* Reporting
-* Executive Summary
-* Technical Findings
-
----
-
-# 13. Password Security
-
-* Password Hashing
-* Password Cracking
-* Dictionary Attacks
-* Brute Force
-* Rainbow Tables
-* MFA
-* Password Managers
-
-### Tools
-
-* Hydra
-* John the Ripper
-* Hashcat
-
----
-
-# 14. Security Operations Center (SOC)
-
-* SOC Fundamentals
-* Security Monitoring
-* Alert Triage
-* Incident Classification
-* Escalation
-* Threat Intelligence
-* IOC
-* IOA
-* Incident Lifecycle
-* Digital Forensics Basics
-
----
-
-# 15. SIEM
-
-* SIEM Fundamentals
-* Log Collection
-* Log Correlation
-* Detection Rules
-* Dashboards
-* Alerting
-* Use Cases
-
-### Platforms
-
-* Splunk
-* ELK Stack
-* Wazuh
-
----
-
-# 16. Threat Hunting
-
-* MITRE ATT&CK Mapping
-* IOC Hunting
-* Behavioral Analysis
-* Log Investigation
-* Malware Indicators
-* Detection Engineering
-
----
-
-# 17. Incident Response
-
-* Preparation
-* Identification
-* Containment
-* Eradication
-* Recovery
-* Lessons Learned
-* Documentation
-
----
-
-# 18. Email Security
-
-* Email Headers
-* SPF
-* DKIM
-* DMARC
-* Phishing Analysis
-* Malware Attachments
-* URL Investigation
-
----
-
-# 19. Cloud Security
-
-## AWS
-
-* EC2
-* IAM
-* VPC
-* S3
-* Security Groups
-* CloudTrail
-* CloudWatch
-* GuardDuty
-* Security Hub
-* AWS Config
-* IAM Policies
-* IAM Roles
-* Least Privilege
-* Shared Responsibility Model
-
-### Compliance
-
-* SOC 2
-* PCI-DSS
-* HIPAA
-
----
-
-# 20. DevSecOps
-
-* Docker
-* Container Security
-* Kubernetes Basics
-* RBAC
-* Network Policies
-* Jenkins
-* GitHub Actions
-* CI/CD Security
-* Terraform
-* Infrastructure as Code
-* Secrets Management
-* Encryption
-* SAST
-* DAST
-* SCA
-* Trivy
-
----
-
-# 21. Scripting & Automation
-
-* Bash
-* Python Basics
-* Python for Cybersecurity
-* API Fundamentals
-* Log Parsing
-* Automation Scripts
-
----
-
-# 22. Hands-on Labs
-
-* VirtualBox
-* VMware
-* Kali Linux
-* Ubuntu
-* Windows VM
-* TryHackMe
-* Hack The Box
-* PortSwigger Academy
-* Blue Team Labs Online
-* OverTheWire
-
----
-
-# 23. Projects
-
-* Home Cybersecurity Lab
-* Linux Hardening
-* Nmap Scanner Report
-* Wireshark Packet Analysis
-* Vulnerability Assessment Report
-* OWASP Juice Shop Pentest
-* DVWA Pentest
-* Splunk SIEM Lab
-* Threat Hunting Lab
-* Incident Response Report
-* AWS Security Lab
-* Docker Security Lab
-* Bash Automation Scripts
-* Python Security Tools
-
----
-
-# 24. Interview Preparation
-
-* Networking Interview Questions
-* Linux Interview Questions
-* SOC Analyst Interview Questions
-* SIEM Interview Questions
-* AWS Security Questions
-* Incident Response Scenarios
-* Resume Preparation
-* GitHub Portfolio
-* Mock Interviews
-
----
-
-# 25. Certifications (Optional)
-
-* Google Cybersecurity Certificate
-* CompTIA Security+
-* Splunk Core Certified User
-* AWS Cloud Practitioner
-* eJPT
-* CEH
+# Final Deliverables
+
+By the end of the bootcamp, the portfolio will include:
+
+- Professional technical notes
+- Security lab documentation
+- Python automation scripts
+- Multiple cybersecurity projects
+- Penetration testing reports
+- Incident response reports
+- Cloud security projects
+- GitHub portfolio
+- Resume and LinkedIn profile
+- Interview preparation notes
