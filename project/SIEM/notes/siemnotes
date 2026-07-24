@@ -1,5 +1,6 @@
 
 ```markdown
+#DAY 1 TO 4
 # 🛡️ SIEM, Virtualization & Wazuh SOC Home Lab — Ultimate Beginner & Hands-On Guide
 
 Welcome to this comprehensive, end-to-end guide on Virtualization, SIEM fundamentals, and setting up a fully functional **Wazuh SIEM / SOC Home Lab**. 
@@ -311,4 +312,35 @@ runas /user:fakeuser notepad.exe
 
 ```
 
-```
+```# 🛡️ SIEM Lab Setup & Beginner Troubleshooting Log
+
+## 📌 Common Setup Challenges for Beginners
+When setting up a home SIEM lab (e.g., Wazuh, ELK, Splunk), beginners frequently encounter non-security issues before getting the SIEM fully functional:
+
+1. **Virtual Network Adapter Misconfigurations:**
+   * Distinguishing between NAT, Bridged, and Host-Only adapters in hypervisors (VirtualBox / VMware).
+   * VMs losing IP addresses after host reboots, breaking cross-VM communication.
+2. **Localhost & Binding Issues:**
+   * Confusion between accessing web dashboards via `localhost` vs. the actual VM IP address.
+   * Dashboards failing to bind to `0.0.0.0` or required ports (`443`, `5601`).
+3. **Resource Starvation:**
+   * SIEM components (Elasticsearch, Wazuh Indexer) failing silently due to low RAM allocations on host machines.
+4. **Service Startup Dependencies:**
+   * Indexers or managers crashing on boot without explicit error messages in the browser.
+
+---
+
+## 🛠️ Today's Setup & Troubleshooting
+
+### Issue 1: Ubuntu VM Connectivity Loss
+* **Problem:** Ubuntu VM hosting SIEM services was inaccessible on the local network.
+* **Fix:** Reconfigured VM Network Adapter settings to ensure proper IP assignment and interface bridging.
+* **Status:** ✅ Resolved.
+
+### Issue 2: Wazuh Dashboard Unreachable
+* **Problem:** Unable to access the Wazuh Dashboard from the host OS (Windows) via browser/localhost.
+* **Next Steps:**
+  * Verify running services: `systemctl status wazuh-dashboard wazuh-indexer`
+  * Check assigned IP address: `ip a` (access via `https://<ubuntu-ip>`)
+  * Validate firewall rules on Ubuntu (`ufw`).
+* **Status:** ⏳ In Progress.
