@@ -1,0 +1,706 @@
+# 🐧 Linux Administrator Roadmap
+
+A comprehensive roadmap covering the essential skills, tools, and technologies required to become a successful Linux Administrator.
+
+---
+
+# 📚 Table of Contents
+
+- [Linux Fundamentals](#-1-linux-fundamentals)
+- [Core Linux Administration](#-2-core-linux-administration)
+- [Networking & Security](#-3-networking--security)
+- [Monitoring & Maintenance](#-4-monitoring--maintenance)
+- [Advanced Administration & Automation](#-5-advanced-administration--automation)
+- [Career Roadmap](#-6-career-roadmap)
+- [Learning Path](#-learning-path)
+- [Quick Revision](#-quick-revision)
+- [Interview Questions](#-interview-questions)
+
+---
+
+# 🐧 1. Linux Fundamentals
+
+Before becoming a Linux Administrator, it's important to understand the basic concepts of Linux and build a proper lab environment.
+
+---
+
+## Lab Setup
+
+Practice Linux inside a virtual environment before working on production servers.
+
+Recommended options:
+
+- Oracle VirtualBox
+- VMware Workstation
+- KVM
+
+---
+
+## Popular Linux Distributions
+
+| Distribution | Purpose |
+|--------------|----------|
+| Ubuntu | Beginner Friendly |
+| Debian | Stable Servers |
+| RHEL | Enterprise Production |
+| Rocky Linux | Free RHEL Alternative |
+| AlmaLinux | Enterprise Linux |
+| Kali Linux | Penetration Testing |
+
+---
+
+## Linux File System
+
+Understanding the Linux directory structure is essential.
+
+```
+/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+```
+
+---
+
+## Essential Commands
+
+```
+pwd
+ls
+cd
+mkdir
+rm
+cp
+mv
+touch
+cat
+less
+nano
+vim
+find
+locate
+grep
+echo
+history
+clear
+```
+
+---
+
+# ⚙️ 2. Core Linux Administration
+
+Linux Administrators spend most of their time managing users, files, software, and running processes.
+
+---
+
+## User Management
+
+Tasks include:
+
+- Create Users
+- Delete Users
+- Modify Users
+- Manage Groups
+- Reset Passwords
+
+### Commands
+
+```bash
+useradd
+adduser
+passwd
+usermod
+groupadd
+groupdel
+id
+whoami
+```
+
+---
+
+## File Permissions
+
+Linux permissions protect files and directories from unauthorized access.
+
+Permission Types
+
+```
+Read (r)
+
+Write (w)
+
+Execute (x)
+```
+
+Permission Categories
+
+```
+Owner
+
+Group
+
+Others
+```
+
+Example
+
+```bash
+chmod 755 file.txt
+
+chmod 644 file.txt
+
+chown user:user file.txt
+```
+
+---
+
+## Process Management
+
+Linux runs everything as a process.
+
+Useful Commands
+
+```bash
+ps
+
+top
+
+htop
+
+kill
+
+killall
+
+pkill
+
+nice
+
+renice
+```
+
+---
+
+## Package Management
+
+Different distributions use different package managers.
+
+| Distribution | Package Manager |
+|--------------|----------------|
+| Ubuntu | apt |
+| Debian | apt |
+| RHEL | yum |
+| Rocky Linux | dnf |
+| AlmaLinux | dnf |
+
+Examples
+
+```bash
+sudo apt update
+
+sudo apt install nginx
+
+sudo dnf install httpd
+
+sudo yum install httpd
+```
+
+---
+
+# 🌐 3. Networking & Security
+
+Networking is one of the most important responsibilities of a Linux Administrator.
+
+---
+
+## IP Configuration
+
+Commands
+
+```bash
+ip a
+
+ip route
+
+hostnamectl
+
+nmcli
+```
+
+---
+
+## Network Troubleshooting
+
+Useful Commands
+
+```bash
+ping
+
+traceroute
+
+netstat
+
+ss
+
+curl
+
+wget
+
+dig
+
+nslookup
+```
+
+---
+
+## SSH
+
+SSH allows secure remote administration of Linux servers.
+
+Commands
+
+```bash
+sudo systemctl start ssh
+
+sudo systemctl enable ssh
+
+ssh user@server-ip
+```
+
+---
+
+## Firewall
+
+Linux firewalls protect servers from unauthorized access.
+
+Popular Firewalls
+
+- UFW
+- Firewalld
+- iptables
+
+Examples
+
+```bash
+sudo ufw allow 22
+
+sudo ufw enable
+
+sudo firewall-cmd --list-all
+```
+
+---
+
+# 📊 4. Monitoring & Maintenance
+
+A Linux Administrator continuously monitors server health.
+
+---
+
+## Monitor System Resources
+
+Commands
+
+```bash
+top
+
+htop
+
+free -h
+
+df -h
+
+du -sh
+
+uptime
+```
+
+---
+
+## Log Management
+
+Important Log Directory
+
+```
+/var/log/
+```
+
+Useful Commands
+
+```bash
+journalctl
+
+tail
+
+less
+
+cat
+```
+
+---
+
+## Backup & Restore
+
+Common Backup Tools
+
+- tar
+- rsync
+- cp
+- snapshots
+
+Example
+
+```bash
+tar -czvf backup.tar.gz project/
+
+rsync -av source destination
+```
+
+---
+
+## Cron Jobs
+
+Cron automates repetitive tasks.
+
+Example
+
+```bash
+crontab -e
+```
+
+Example Schedule
+
+```
+0 2 * * * backup.sh
+```
+
+Runs every day at **2:00 AM**.
+
+---
+
+# 🚀 5. Advanced Administration & Automation
+
+---
+
+## Shell Scripting
+
+Shell scripts automate administrative tasks.
+
+Example
+
+```bash
+#!/bin/bash
+
+echo "System Health"
+
+df -h
+
+free -h
+```
+
+---
+
+## Storage Management
+
+### LVM
+
+Logical Volume Manager allows flexible storage allocation.
+
+Advantages
+
+- Resize partitions
+- Snapshot support
+- Flexible storage
+
+---
+
+### RAID
+
+Redundant Array of Independent Disks provides:
+
+- Redundancy
+- Performance
+- Fault Tolerance
+
+Common RAID Levels
+
+- RAID 0
+- RAID 1
+- RAID 5
+- RAID 6
+- RAID 10
+
+---
+
+## Configuration Management
+
+### Ansible
+
+Ansible automates server configuration.
+
+Capabilities
+
+- Package Installation
+- User Management
+- Configuration Deployment
+- Service Management
+
+---
+
+## Virtualization
+
+Popular Hypervisors
+
+- KVM
+- VMware
+- VirtualBox
+
+Purpose
+
+Run multiple Virtual Machines on a single physical server.
+
+---
+
+## Containers
+
+Popular Container Platforms
+
+- Docker
+- Podman
+
+Benefits
+
+- Lightweight
+- Fast Deployment
+- Application Isolation
+
+---
+
+## High Availability
+
+High Availability ensures services remain operational during failures.
+
+Popular Tools
+
+- Keepalived
+- Pacemaker
+
+---
+
+## Load Balancing
+
+Popular Load Balancers
+
+- Nginx
+- HAProxy
+
+Purpose
+
+Distribute traffic across multiple servers.
+
+---
+
+## Cloud Platforms
+
+Linux Administrators should understand cloud services.
+
+Popular Providers
+
+- Amazon Web Services (AWS)
+- Microsoft Azure
+- Google Cloud Platform (GCP)
+
+---
+
+# 💼 6. Career Roadmap
+
+## Recommended Certifications
+
+- RHCSA
+- RHCE
+- Linux+
+- LPIC-1
+- LFCS
+
+---
+
+## Build Projects
+
+Practical experience is essential.
+
+Project Ideas
+
+- Linux Home Server
+- Apache Web Server
+- Nginx Reverse Proxy
+- FTP Server
+- SSH Server
+- Samba File Server
+- Docker Lab
+- Kubernetes Lab
+- Monitoring Server
+- SIEM Lab using Wazuh
+
+---
+
+## Build a Portfolio
+
+Upload projects on GitHub.
+
+Include:
+
+- Documentation
+- Screenshots
+- Configuration Files
+- Bash Scripts
+- Automation Playbooks
+
+---
+
+# 🛣️ Learning Path
+
+```
+Linux Basics
+      │
+      ▼
+Linux Commands
+      │
+      ▼
+Users & Permissions
+      │
+      ▼
+Networking
+      │
+      ▼
+SSH & Firewall
+      │
+      ▼
+Package Management
+      │
+      ▼
+Logs & Monitoring
+      │
+      ▼
+Shell Scripting
+      │
+      ▼
+Storage (LVM & RAID)
+      │
+      ▼
+Ansible
+      │
+      ▼
+Docker & Podman
+      │
+      ▼
+Cloud (AWS / Azure / GCP)
+      │
+      ▼
+Linux Administrator
+```
+
+---
+
+# 📖 Quick Revision
+
+| Topic | Purpose |
+|--------|----------|
+| Linux Fundamentals | Learn Linux environment |
+| File System | Organize system files |
+| User Management | Manage users and groups |
+| File Permissions | Secure files and directories |
+| Process Management | Monitor running applications |
+| Package Management | Install and update software |
+| Networking | Configure network connectivity |
+| SSH | Secure remote administration |
+| Firewall | Protect servers |
+| Logs | Troubleshoot system issues |
+| Cron Jobs | Automate scheduled tasks |
+| Shell Scripting | Automate administration |
+| LVM | Flexible storage management |
+| RAID | Fault tolerance and redundancy |
+| Docker | Containerization |
+| Ansible | Infrastructure Automation |
+| Cloud | Modern server deployment |
+
+---
+
+# 💼 Interview Questions
+
+### Q1. What is the role of a Linux Administrator?
+
+**Answer:**
+A Linux Administrator installs, configures, secures, monitors, and maintains Linux servers while ensuring high availability and performance.
+
+---
+
+### Q2. What is the difference between chmod and chown?
+
+| Command | Purpose |
+|----------|----------|
+| chmod | Changes file permissions |
+| chown | Changes file ownership |
+
+---
+
+### Q3. Which command is used to monitor running processes?
+
+**Answer:**
+
+```
+top
+htop
+ps
+```
+
+---
+
+### Q4. Why is SSH important?
+
+**Answer:**
+SSH provides secure encrypted remote access for managing Linux servers.
+
+---
+
+### Q5. What is LVM?
+
+**Answer:**
+Logical Volume Manager (LVM) provides flexible disk management, allowing logical volumes to be resized and managed dynamically.
+
+---
+
+### Q6. What is RAID?
+
+**Answer:**
+RAID combines multiple disks to improve performance, redundancy, or fault tolerance depending on the RAID level used.
+
+---
+
+### Q7. Why is Ansible used?
+
+**Answer:**
+Ansible automates configuration management, software deployment, and infrastructure provisioning across multiple servers.
+
+---
+
+### Q8. Why should Linux Administrators learn Docker?
+
+**Answer:**
+Docker enables lightweight application deployment, portability, and easier management of containerized applications.
+
+---
+
+> ⭐ **Pro Tip:** The best way to become a Linux Administrator is to build hands-on labs. Practice on Ubuntu, Rocky Linux, or RHEL using VirtualBox or VMware, automate tasks with Bash and Ansible, deploy applications with Docker, and document every project on GitHub to build a strong portfolio.
