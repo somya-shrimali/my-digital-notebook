@@ -704,3 +704,476 @@ Docker enables lightweight application deployment, portability, and easier manag
 ---
 
 > ⭐ **Pro Tip:** The best way to become a Linux Administrator is to build hands-on labs. Practice on Ubuntu, Rocky Linux, or RHEL using VirtualBox or VMware, automate tasks with Bash and Ansible, deploy applications with Docker, and document every project on GitHub to build a strong portfolio.
+
+# 👤 Linux User Account Management
+
+A comprehensive guide to managing **users, groups, passwords, and account security** in Linux. These are the fundamental administrative tasks every Linux Administrator should master.
+
+---
+
+# 📚 Table of Contents
+
+- [User Management](#-1-user-management)
+- [Group Management](#-2-group-management)
+- [Password & Account Security](#-3-password--account-security)
+- [Important System Files](#-4-important-system-files)
+- [Useful Verification Commands](#-5-useful-verification-commands)
+- [Command Summary](#-command-summary)
+- [Quick Revision](#-quick-revision)
+- [Interview Questions](#-interview-questions)
+
+---
+
+# 👤 1. User Management
+
+Linux stores every user as an individual account with a unique **User ID (UID)**. System administrators can create, modify, and delete these accounts using different commands.
+
+---
+
+## ➕ useradd
+
+The `useradd` command is used to create a new user account.
+
+### Syntax
+
+```bash
+useradd username
+```
+
+---
+
+### Common Options
+
+| Option | Purpose |
+|----------|---------|
+| `-g` | Assign a primary group |
+| `-s` | Specify the default shell |
+| `-c` | Add a comment or description |
+| `-m` | Create the user's home directory |
+| `-d` | Specify a custom home directory |
+
+---
+
+### Examples
+
+Create a basic user
+
+```bash
+sudo useradd john
+```
+
+Create a user with a home directory
+
+```bash
+sudo useradd -m john
+```
+
+Assign a primary group
+
+```bash
+sudo useradd -g developers john
+```
+
+Specify the default shell
+
+```bash
+sudo useradd -s /bin/bash john
+```
+
+Add a comment
+
+```bash
+sudo useradd -c "Web Administrator" john
+```
+
+Create a custom home directory
+
+```bash
+sudo useradd -d /home/webadmin john
+```
+
+---
+
+## ❌ userdel
+
+The `userdel` command removes an existing user account.
+
+### Syntax
+
+```bash
+userdel username
+```
+
+---
+
+### Common Options
+
+| Option | Purpose |
+|----------|---------|
+| `-r` | Delete the user and home directory |
+| `-f` | Force delete the user even if logged in |
+
+---
+
+### Examples
+
+Delete a user
+
+```bash
+sudo userdel john
+```
+
+Delete user with home directory
+
+```bash
+sudo userdel -r john
+```
+
+Force delete user
+
+```bash
+sudo userdel -f john
+```
+
+---
+
+## ✏️ usermod
+
+The `usermod` command modifies an existing user account.
+
+It can be used to:
+
+- Change groups
+- Change shell
+- Change home directory
+- Lock or unlock accounts
+- Rename users
+
+### Example
+
+```bash
+sudo usermod username
+```
+
+---
+
+# 👥 2. Group Management
+
+Groups make permission management easier by allowing multiple users to share the same access rights.
+
+---
+
+## ➕
+
+### groupadd
+
+Creates a new group.
+
+```bash
+sudo groupadd developers
+```
+
+---
+
+## ❌
+
+### groupdel
+
+Deletes an existing group.
+
+```bash
+sudo groupdel developers
+```
+
+---
+
+# 🔐 3. Password & Account Security
+
+Linux provides built-in commands to manage user authentication and account security.
+
+---
+
+## 🔑 passwd
+
+Used to set or change a user's password.
+
+### Syntax
+
+```bash
+passwd username
+```
+
+Example
+
+```bash
+sudo passwd john
+```
+
+---
+
+## 🔒 Lock User Account
+
+Prevent a user from logging in.
+
+```bash
+sudo usermod -L john
+```
+
+---
+
+## 🔓 Unlock User Account
+
+Allow the user to log in again.
+
+```bash
+sudo usermod -U john
+```
+
+---
+
+# 📂 4. Important System Files
+
+Linux stores user and group information inside specific configuration files.
+
+---
+
+## 📄 /etc/passwd
+
+Stores user account information.
+
+Contains:
+
+- Username
+- UID
+- GID
+- Home Directory
+- Default Shell
+
+Example
+
+```text
+john:x:1001:1001:John:/home/john:/bin/bash
+```
+
+---
+
+## 📄 /etc/group
+
+Stores information about system groups.
+
+Contains:
+
+- Group Name
+- Group ID
+- Group Members
+
+Example
+
+```text
+developers:x:1001:john
+```
+
+---
+
+## 📄 /etc/shadow
+
+Stores encrypted passwords and password policies.
+
+Contains:
+
+- Encrypted Password
+- Password Expiration
+- Account Expiration
+- Password Aging Information
+
+Example
+
+```text
+john:$6$abcxyz........
+```
+
+⚠️ Only the **root user** can access this file.
+
+---
+
+# 🔍 5. Useful Verification Commands
+
+---
+
+## Display User Information
+
+```bash
+id username
+```
+
+Example
+
+```bash
+id john
+```
+
+Output
+
+```text
+uid=1001(john)
+gid=1001(john)
+groups=1001(john),1002(developers)
+```
+
+---
+
+## Current Logged-in User
+
+```bash
+whoami
+```
+
+---
+
+## Display Current User ID
+
+```bash
+id
+```
+
+---
+
+## List Logged-in Users
+
+```bash
+who
+```
+
+---
+
+## Display Login History
+
+```bash
+last
+```
+
+---
+
+# 📋 Command Summary
+
+| Command | Purpose |
+|----------|----------|
+| `useradd` | Create a user |
+| `userdel` | Delete a user |
+| `usermod` | Modify user properties |
+| `groupadd` | Create a group |
+| `groupdel` | Delete a group |
+| `passwd` | Change user password |
+| `usermod -L` | Lock a user account |
+| `usermod -U` | Unlock a user account |
+| `id` | Display user information |
+| `whoami` | Show current user |
+| `who` | Show logged-in users |
+| `last` | Show login history |
+
+---
+
+# 📖 Quick Revision
+
+| Topic | Purpose |
+|--------|----------|
+| useradd | Creates a new user |
+| userdel | Deletes an existing user |
+| usermod | Modifies user settings |
+| groupadd | Creates a group |
+| groupdel | Deletes a group |
+| passwd | Changes passwords |
+| /etc/passwd | Stores user account information |
+| /etc/group | Stores group information |
+| /etc/shadow | Stores encrypted passwords |
+| id | Displays user details |
+
+---
+
+# 💼 Interview Questions
+
+### Q1. What is the purpose of the `useradd` command?
+
+**Answer:**
+
+The `useradd` command creates a new user account in Linux.
+
+---
+
+### Q2. What is the difference between `useradd` and `usermod`?
+
+| useradd | usermod |
+|----------|----------|
+| Creates a new user | Modifies an existing user |
+
+---
+
+### Q3. What does the `-m` option do in `useradd`?
+
+**Answer:**
+
+It automatically creates the user's home directory.
+
+---
+
+### Q4. Which file stores encrypted passwords?
+
+**Answer:**
+
+```
+/etc/shadow
+```
+
+---
+
+### Q5. Which file contains user account information?
+
+**Answer:**
+
+```
+/etc/passwd
+```
+
+---
+
+### Q6. How do you lock a user account?
+
+**Answer:**
+
+```bash
+sudo usermod -L username
+```
+
+---
+
+### Q7. How do you unlock a user account?
+
+**Answer:**
+
+```bash
+sudo usermod -U username
+```
+
+---
+
+### Q8. Which command displays a user's UID, GID, and group membership?
+
+**Answer:**
+
+```bash
+id username
+```
+
+---
+
+### Q9. What is the difference between `/etc/passwd` and `/etc/shadow`?
+
+| `/etc/passwd` | `/etc/shadow` |
+|---------------|---------------|
+| Stores user account information | Stores encrypted passwords |
+| Readable by all users | Accessible only by root |
+| Contains UID, GID, Home Directory, Shell | Contains password hashes and password aging information |
+
+---
+
+> 💡 **Pro Tip:** Before modifying or deleting a user account, always verify the user's details using the `id username` command. This helps confirm the user's UID, GID, group memberships, and prevents accidental changes to the wrong account.
