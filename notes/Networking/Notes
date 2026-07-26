@@ -99,3 +99,211 @@ A comprehensive breakdown of core networking devices, their OSI layers, and func
 ### 6. 💾 Network Storage
 * **NAS (Network Attached Storage):** Provides **file-level** access over standard local network protocols (NFS, SMB).
 * **SAN (Storage Area Network):** Dedicated high-speed storage network delivering **block-level** access for high-performance databases and servers.
+
+# Networking Fundamentals Notes
+
+These notes cover essential networking concepts related to data delivery, secure communication, traffic management, and packet handling.
+
+---
+
+# 1. Content Delivery Network (CDN)
+
+## What is a CDN?
+
+A **Content Delivery Network (CDN)** is a distributed network of servers located across different geographic regions.
+
+Its primary purpose is to deliver content to users from the **nearest available server**, reducing latency and improving website performance.
+
+## Why is it used?
+
+- Faster content delivery
+- Reduced latency
+- Lower server load
+- Improved user experience
+- Better availability during high traffic
+
+### Example
+
+Instead of downloading a file from a server in the USA, an Indian user receives the content from a nearby server located in India.
+
+---
+
+# 2. Virtual Private Network (VPN)
+
+## What is a VPN?
+
+A **Virtual Private Network (VPN)** creates an encrypted tunnel between a user's device and a private network over the public Internet.
+
+It allows users to securely access internal organizational resources from anywhere.
+
+## Main Advantages
+
+- Encrypts network traffic
+- Protects sensitive data
+- Enables secure remote access
+- Hides the user's public IP address
+
+## VPN Concentrator
+
+Large organizations often use a **VPN Concentrator**.
+
+### Purpose
+
+- Handles encryption/decryption
+- Supports multiple simultaneous VPN users
+- Can be:
+  - Dedicated hardware appliance
+  - Integrated into a Next-Generation Firewall (NGFW)
+
+---
+
+# 3. Quality of Service (QoS)
+
+## What is QoS?
+
+**Quality of Service (QoS)** is a network traffic management technique that prioritizes important traffic over less critical traffic.
+
+It is also known as:
+
+- Traffic Shaping
+- Packet Shaping
+
+## Why is QoS important?
+
+Some applications require very low latency.
+
+Examples:
+
+- Video conferencing
+- Voice calls (VoIP)
+- Online gaming
+- Live streaming
+
+QoS ensures these applications receive higher priority than tasks like:
+
+- File downloads
+- Software updates
+- Backups
+
+---
+
+# 4. Time To Live (TTL)
+
+TTL prevents packets from remaining on the network forever.
+
+Its meaning depends on where it is used.
+
+---
+
+## TTL in IP Routing
+
+### Purpose
+
+TTL specifies the **maximum number of routers (hops)** that a packet can pass through.
+
+Every router decreases the TTL value by **1**.
+
+When TTL reaches **0**:
+
+- The packet is discarded.
+- An ICMP "Time Exceeded" message is usually generated.
+
+### Why is TTL important?
+
+It prevents:
+
+- Infinite routing loops
+- Network congestion
+- Endless packet circulation
+
+### Example
+
+Initial TTL = 64
+
+Router 1 → TTL = 63
+
+Router 2 → TTL = 62
+
+...
+
+Router 64 → TTL = 0
+
+Packet is dropped.
+
+---
+
+## TTL in DNS
+
+In DNS, TTL represents the amount of time (in **seconds**) that a DNS record can remain cached.
+
+After the TTL expires, the client must query the DNS server again.
+
+### Why is this useful?
+
+It allows administrators to:
+
+- Update IP addresses
+- Move services
+- Change DNS records
+
+without clients using outdated cached information for too long.
+
+### Example
+
+TTL = 3600 seconds
+
+The DNS record remains cached for **1 hour** before a new lookup is required.
+
+---
+
+# Key Takeaways
+
+| Concept | Purpose |
+|----------|---------|
+| CDN | Delivers content from the nearest server to reduce latency |
+| VPN | Creates an encrypted tunnel for secure remote communication |
+| VPN Concentrator | Manages multiple VPN connections efficiently |
+| QoS | Prioritizes important network traffic |
+| TTL (IP) | Limits packet lifetime using hop count |
+| TTL (DNS) | Defines how long DNS records remain cached |
+
+---
+
+# Interview Questions
+
+### Q1. Why is a CDN used?
+
+**Answer:**  
+To reduce latency and improve content delivery by serving users from the nearest server.
+
+---
+
+### Q2. What is the purpose of a VPN?
+
+**Answer:**  
+To provide secure, encrypted communication over public networks.
+
+---
+
+### Q3. What is QoS?
+
+**Answer:**  
+QoS prioritizes critical network traffic to ensure better performance for latency-sensitive applications.
+
+---
+
+### Q4. What happens when TTL reaches zero?
+
+**Answer:**  
+The packet is discarded to prevent infinite routing loops.
+
+---
+
+### Q5. How is TTL different in IP and DNS?
+
+**Answer:**
+
+- **IP TTL:** Maximum number of network hops.
+- **DNS TTL:** Time (in seconds) a DNS record remains cached.
+
+---
