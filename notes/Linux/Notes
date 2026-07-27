@@ -1,60 +1,60 @@
-# 🐧 Linux Administrator Roadmap
+<h1>🐧 Linux Administrator Roadmap & User Account Management</h1>
 
-A comprehensive roadmap covering the essential skills, tools, and technologies required to become a successful Linux Administrator.
+<p>A comprehensive roadmap covering essential skills, tools, and technologies alongside detailed guides for Linux User Account Management.</p>
 
----
+<hr>
 
-# 📚 Table of Contents
+<h2>📚 Table of Contents</h2>
 
-- [Linux Fundamentals](#-1-linux-fundamentals)
-- [Core Linux Administration](#-2-core-linux-administration)
-- [Networking & Security](#-3-networking--security)
-- [Monitoring & Maintenance](#-4-monitoring--maintenance)
-- [Advanced Administration & Automation](#-5-advanced-administration--automation)
-- [Career Roadmap](#-6-career-roadmap)
-- [Learning Path](#-learning-path)
-- [Quick Revision](#-quick-revision)
-- [Interview Questions](#-interview-questions)
+<ul>
+  <li><a href="#-1-linux-fundamentals">1. Linux Fundamentals</a></li>
+  <li><a href="#-2-core-linux-administration">2. Core Linux Administration</a></li>
+  <li><a href="#-3-networking--security">3. Networking & Security</a></li>
+  <li><a href="#-4-monitoring--maintenance">4. Monitoring & Maintenance</a></li>
+  <li><a href="#-5-advanced-administration--automation">5. Advanced Administration & Automation</a></li>
+  <li><a href="#-6-career-roadmap">6. Career Roadmap</a></li>
+  <li><a href="#-learning-path">Learning Path</a></li>
+  <li><a href="#-quick-revision">Quick Revision</a></li>
+  <li><a href="#-interview-questions">Interview Questions</a></li>
+  <li><a href="#-linux-user-account-management">Linux User Account Management</a></li>
+</ul>
 
----
+<hr>
 
-# 🐧 1. Linux Fundamentals
+<h2 id="-1-linux-fundamentals">🐧 1. Linux Fundamentals</h2>
 
-Before becoming a Linux Administrator, it's important to understand the basic concepts of Linux and build a proper lab environment.
+<p>Before becoming a Linux Administrator, it's important to understand the basic concepts of Linux and build a proper lab environment.</p>
 
----
+<h3>Lab Setup</h3>
+<p>Practice Linux inside a virtual environment before working on production servers.</p>
+<p><b>Recommended options:</b></p>
+<ul>
+  <li>Oracle VirtualBox</li>
+  <li>VMware Workstation</li>
+  <li>KVM</li>
+</ul>
 
-## Lab Setup
+<h3>Popular Linux Distributions</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Distribution</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Ubuntu</td><td>Beginner Friendly</td></tr>
+    <tr><td>Debian</td><td>Stable Servers</td></tr>
+    <tr><td>RHEL</td><td>Enterprise Production</td></tr>
+    <tr><td>Rocky Linux</td><td>Free RHEL Alternative</td></tr>
+    <tr><td>AlmaLinux</td><td>Enterprise Linux</td></tr>
+    <tr><td>Kali Linux</td><td>Penetration Testing</td></tr>
+  </tbody>
+</table>
 
-Practice Linux inside a virtual environment before working on production servers.
-
-Recommended options:
-
-- Oracle VirtualBox
-- VMware Workstation
-- KVM
-
----
-
-## Popular Linux Distributions
-
-| Distribution | Purpose |
-|--------------|----------|
-| Ubuntu | Beginner Friendly |
-| Debian | Stable Servers |
-| RHEL | Enterprise Production |
-| Rocky Linux | Free RHEL Alternative |
-| AlmaLinux | Enterprise Linux |
-| Kali Linux | Penetration Testing |
-
----
-
-## Linux File System
-
-Understanding the Linux directory structure is essential.
-
-```
-/
+<h3>Linux File System</h3>
+<p>Understanding the Linux directory structure is essential.</p>
+<pre><code>/
 ├── bin
 ├── boot
 ├── dev
@@ -71,1109 +71,420 @@ Understanding the Linux directory structure is essential.
 ├── sys
 ├── tmp
 ├── usr
-└── var
-```
+└── var</code></pre>
 
----
+<h3>Essential Commands</h3>
+<pre><code>pwd  ls  cd  mkdir  rm  cp  mv  touch  cat  less  nano  vim  find  locate  grep  echo  history  clear</code></pre>
 
-## Essential Commands
+<hr>
 
-```
-pwd
-ls
-cd
-mkdir
-rm
-cp
-mv
-touch
-cat
-less
-nano
-vim
-find
-locate
-grep
-echo
-history
-clear
-```
+<h2 id="-2-core-linux-administration">⚙️ 2. Core Linux Administration</h2>
 
----
+<p>Linux Administrators spend most of their time managing users, files, software, and running processes.</p>
 
-# ⚙️ 2. Core Linux Administration
+<h3>User Management Tasks</h3>
+<ul>
+  <li>Create Users</li>
+  <li>Delete Users</li>
+  <li>Modify Users</li>
+  <li>Manage Groups</li>
+  <li>Reset Passwords</li>
+</ul>
 
-Linux Administrators spend most of their time managing users, files, software, and running processes.
+<p><b>Commands:</b> <code>useradd</code>, <code>adduser</code>, <code>passwd</code>, <code>usermod</code>, <code>groupadd</code>, <code>groupdel</code>, <code>id</code>, <code>whoami</code></p>
 
----
+<h3>File Permissions</h3>
+<p>Linux permissions protect files and directories from unauthorized access.</p>
+<p><b>Permission Types:</b> Read (r), Write (w), Execute (x)</p>
+<p><b>Permission Categories:</b> Owner, Group, Others</p>
 
-## User Management
-
-Tasks include:
-
-- Create Users
-- Delete Users
-- Modify Users
-- Manage Groups
-- Reset Passwords
-
-### Commands
-
-```bash
-useradd
-adduser
-passwd
-usermod
-groupadd
-groupdel
-id
-whoami
-```
-
----
-
-## File Permissions
-
-Linux permissions protect files and directories from unauthorized access.
-
-Permission Types
-
-```
-Read (r)
-
-Write (w)
-
-Execute (x)
-```
-
-Permission Categories
-
-```
-Owner
-
-Group
-
-Others
-```
-
-Example
-
-```bash
-chmod 755 file.txt
-
+<p><b>Examples:</b></p>
+<pre><code>chmod 755 file.txt
 chmod 644 file.txt
+chown user:user file.txt</code></pre>
 
-chown user:user file.txt
-```
+<h3>Process Management</h3>
+<p><b>Useful Commands:</b> <code>ps</code>, <code>top</code>, <code>htop</code>, <code>kill</code>, <code>killall</code>, <code>pkill</code>, <code>nice</code>, <code>renice</code></p>
 
----
+<h3>Package Management</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Distribution</th>
+      <th>Package Manager</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Ubuntu</td><td>apt</td></tr>
+    <tr><td>Debian</td><td>apt</td></tr>
+    <tr><td>RHEL</td><td>yum</td></tr>
+    <tr><td>Rocky Linux</td><td>dnf</td></tr>
+    <tr><td>AlmaLinux</td><td>dnf</td></tr>
+  </tbody>
+</table>
 
-## Process Management
-
-Linux runs everything as a process.
-
-Useful Commands
-
-```bash
-ps
-
-top
-
-htop
-
-kill
-
-killall
-
-pkill
-
-nice
-
-renice
-```
-
----
-
-## Package Management
-
-Different distributions use different package managers.
-
-| Distribution | Package Manager |
-|--------------|----------------|
-| Ubuntu | apt |
-| Debian | apt |
-| RHEL | yum |
-| Rocky Linux | dnf |
-| AlmaLinux | dnf |
-
-Examples
-
-```bash
-sudo apt update
-
+<p><b>Examples:</b></p>
+<pre><code>sudo apt update
 sudo apt install nginx
-
 sudo dnf install httpd
+sudo yum install httpd</code></pre>
 
-sudo yum install httpd
-```
+<hr>
 
----
+<h2 id="-3-networking--security">🌐 3. Networking & Security</h2>
 
-# 🌐 3. Networking & Security
-
-Networking is one of the most important responsibilities of a Linux Administrator.
-
----
-
-## IP Configuration
-
-Commands
-
-```bash
-ip a
-
+<h3>IP Configuration</h3>
+<pre><code>ip a
 ip route
-
 hostnamectl
+nmcli</code></pre>
 
-nmcli
-```
-
----
-
-## Network Troubleshooting
-
-Useful Commands
-
-```bash
-ping
-
+<h3>Network Troubleshooting</h3>
+<pre><code>ping
 traceroute
-
 netstat
-
 ss
-
 curl
-
 wget
-
 dig
+nslookup</code></pre>
 
-nslookup
-```
-
----
-
-## SSH
-
-SSH allows secure remote administration of Linux servers.
-
-Commands
-
-```bash
-sudo systemctl start ssh
-
+<h3>SSH</h3>
+<pre><code>sudo systemctl start ssh
 sudo systemctl enable ssh
+ssh user@server-ip</code></pre>
 
-ssh user@server-ip
-```
-
----
-
-## Firewall
-
-Linux firewalls protect servers from unauthorized access.
-
-Popular Firewalls
-
-- UFW
-- Firewalld
-- iptables
-
-Examples
-
-```bash
-sudo ufw allow 22
-
+<h3>Firewall</h3>
+<p><b>Popular Firewalls:</b> UFW, Firewalld, iptables</p>
+<pre><code>sudo ufw allow 22
 sudo ufw enable
+sudo firewall-cmd --list-all</code></pre>
 
-sudo firewall-cmd --list-all
-```
+<hr>
 
----
+<h2 id="-4-monitoring--maintenance">📊 4. Monitoring & Maintenance</h2>
 
-# 📊 4. Monitoring & Maintenance
-
-A Linux Administrator continuously monitors server health.
-
----
-
-## Monitor System Resources
-
-Commands
-
-```bash
-top
-
+<h3>Monitor System Resources</h3>
+<pre><code>top
 htop
-
 free -h
-
 df -h
-
 du -sh
+uptime</code></pre>
 
-uptime
-```
-
----
-
-## Log Management
-
-Important Log Directory
-
-```
-/var/log/
-```
-
-Useful Commands
-
-```bash
-journalctl
-
+<h3>Log Management</h3>
+<p><b>Important Log Directory:</b> <code>/var/log/</code></p>
+<pre><code>journalctl
 tail
-
 less
+cat</code></pre>
 
-cat
-```
+<h3>Backup & Restore</h3>
+<p><b>Common Backup Tools:</b> <code>tar</code>, <code>rsync</code>, <code>cp</code>, snapshots</p>
+<pre><code>tar -czvf backup.tar.gz project/
+rsync -av source destination</code></pre>
 
----
+<h3>Cron Jobs</h3>
+<p>Cron automates repetitive tasks.</p>
+<pre><code>crontab -e</code></pre>
+<p>Schedule Example (Runs every day at 2:00 AM):</p>
+<pre><code>0 2 * * * backup.sh</code></pre>
 
-## Backup & Restore
+<hr>
 
-Common Backup Tools
+<h2 id="-5-advanced-administration--automation">🚀 5. Advanced Administration & Automation</h2>
 
-- tar
-- rsync
-- cp
-- snapshots
-
-Example
-
-```bash
-tar -czvf backup.tar.gz project/
-
-rsync -av source destination
-```
-
----
-
-## Cron Jobs
-
-Cron automates repetitive tasks.
-
-Example
-
-```bash
-crontab -e
-```
-
-Example Schedule
-
-```
-0 2 * * * backup.sh
-```
-
-Runs every day at **2:00 AM**.
-
----
-
-# 🚀 5. Advanced Administration & Automation
-
----
-
-## Shell Scripting
-
-Shell scripts automate administrative tasks.
-
-Example
-
-```bash
-#!/bin/bash
-
+<h3>Shell Scripting</h3>
+<pre><code>#!/bin/bash
 echo "System Health"
-
 df -h
+free -h</code></pre>
 
-free -h
-```
+<h3>Storage Management</h3>
+<details>
+  <summary><b>LVM (Logical Volume Manager)</b></summary>
+  <p>Allows flexible storage allocation. Advantages: Resize partitions, snapshot support, flexible storage.</p>
+</details>
 
----
+<br>
 
-## Storage Management
+<details>
+  <summary><b>RAID (Redundant Array of Independent Disks)</b></summary>
+  <p>Provides redundancy, performance, and fault tolerance. Common Levels: RAID 0, RAID 1, RAID 5, RAID 6, RAID 10.</p>
+</details>
 
-### LVM
+<h3>Configuration Management</h3>
+<p><b>Ansible:</b> Automates server configuration, package installation, user management, and service management.</p>
 
-Logical Volume Manager allows flexible storage allocation.
+<h3>Virtualization & Containers</h3>
+<ul>
+  <li><b>Hypervisors:</b> KVM, VMware, VirtualBox</li>
+  <li><b>Containers:</b> Docker, Podman (Lightweight, fast deployment, isolated)</li>
+</ul>
 
-Advantages
+<h3>High Availability & Load Balancing</h3>
+<ul>
+  <li><b>HA Tools:</b> Keepalived, Pacemaker</li>
+  <li><b>Load Balancers:</b> Nginx, HAProxy</li>
+  <li><b>Cloud Providers:</b> AWS, Azure, GCP</li>
+</ul>
 
-- Resize partitions
-- Snapshot support
-- Flexible storage
+<hr>
 
----
+<h2 id="-6-career-roadmap">💼 6. Career Roadmap</h2>
 
-### RAID
+<h3>Recommended Certifications</h3>
+<p>RHCSA, RHCE, Linux+, LPIC-1, LFCS</p>
 
-Redundant Array of Independent Disks provides:
+<h3>Project Ideas</h3>
+<ul>
+  <li>Linux Home Server</li>
+  <li>Apache / Nginx Web Server</li>
+  <li>FTP / SSH / Samba File Server</li>
+  <li>Docker / Kubernetes Lab</li>
+  <li>Monitoring Server & SIEM Lab using Wazuh</li>
+</ul>
 
-- Redundancy
-- Performance
-- Fault Tolerance
+<hr>
 
-Common RAID Levels
+<h2 id="-learning-path">🛣️ Learning Path</h2>
 
-- RAID 0
-- RAID 1
-- RAID 5
-- RAID 6
-- RAID 10
-
----
-
-## Configuration Management
-
-### Ansible
-
-Ansible automates server configuration.
-
-Capabilities
-
-- Package Installation
-- User Management
-- Configuration Deployment
-- Service Management
-
----
-
-## Virtualization
-
-Popular Hypervisors
-
-- KVM
-- VMware
-- VirtualBox
-
-Purpose
-
-Run multiple Virtual Machines on a single physical server.
-
----
-
-## Containers
-
-Popular Container Platforms
-
-- Docker
-- Podman
-
-Benefits
-
-- Lightweight
-- Fast Deployment
-- Application Isolation
-
----
-
-## High Availability
-
-High Availability ensures services remain operational during failures.
-
-Popular Tools
-
-- Keepalived
-- Pacemaker
-
----
-
-## Load Balancing
-
-Popular Load Balancers
-
-- Nginx
-- HAProxy
-
-Purpose
-
-Distribute traffic across multiple servers.
-
----
-
-## Cloud Platforms
-
-Linux Administrators should understand cloud services.
-
-Popular Providers
-
-- Amazon Web Services (AWS)
-- Microsoft Azure
-- Google Cloud Platform (GCP)
-
----
-
-# 💼 6. Career Roadmap
-
-## Recommended Certifications
-
-- RHCSA
-- RHCE
-- Linux+
-- LPIC-1
-- LFCS
-
----
-
-## Build Projects
-
-Practical experience is essential.
-
-Project Ideas
-
-- Linux Home Server
-- Apache Web Server
-- Nginx Reverse Proxy
-- FTP Server
-- SSH Server
-- Samba File Server
-- Docker Lab
-- Kubernetes Lab
-- Monitoring Server
-- SIEM Lab using Wazuh
-
----
-
-## Build a Portfolio
-
-Upload projects on GitHub.
-
-Include:
-
-- Documentation
-- Screenshots
-- Configuration Files
-- Bash Scripts
-- Automation Playbooks
-
----
-
-# 🛣️ Learning Path
-
-```
-Linux Basics
+<pre><code>Linux Basics
       │
       ▼
-Linux Commands
-      │
+Linux Commands ──► Users & Permissions ──► Networking ──► SSH & Firewall
+                                                               │
+      ┌────────────────────────────────────────────────────────┘
       ▼
-Users & Permissions
-      │
+Package Management ──► Logs & Monitoring ──► Shell Scripting
+                                                  │
+      ┌───────────────────────────────────────────┘
       ▼
-Networking
-      │
-      ▼
-SSH & Firewall
-      │
-      ▼
-Package Management
-      │
-      ▼
-Logs & Monitoring
-      │
-      ▼
-Shell Scripting
-      │
-      ▼
-Storage (LVM & RAID)
-      │
-      ▼
-Ansible
-      │
-      ▼
-Docker & Podman
-      │
-      ▼
-Cloud (AWS / Azure / GCP)
-      │
-      ▼
-Linux Administrator
-```
+Storage (LVM & RAID) ──► Ansible ──► Docker/Podman ──► Cloud ──► Linux Admin</code></pre>
 
----
+<hr>
 
-# 📖 Quick Revision
+<h2 id="-quick-revision">📖 Quick Revision</h2>
 
-| Topic | Purpose |
-|--------|----------|
-| Linux Fundamentals | Learn Linux environment |
-| File System | Organize system files |
-| User Management | Manage users and groups |
-| File Permissions | Secure files and directories |
-| Process Management | Monitor running applications |
-| Package Management | Install and update software |
-| Networking | Configure network connectivity |
-| SSH | Secure remote administration |
-| Firewall | Protect servers |
-| Logs | Troubleshoot system issues |
-| Cron Jobs | Automate scheduled tasks |
-| Shell Scripting | Automate administration |
-| LVM | Flexible storage management |
-| RAID | Fault tolerance and redundancy |
-| Docker | Containerization |
-| Ansible | Infrastructure Automation |
-| Cloud | Modern server deployment |
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Linux Fundamentals</td><td>Learn Linux environment</td></tr>
+    <tr><td>File System</td><td>Organize system files</td></tr>
+    <tr><td>User Management</td><td>Manage users and groups</td></tr>
+    <tr><td>File Permissions</td><td>Secure files and directories</td></tr>
+    <tr><td>Process Management</td><td>Monitor running applications</td></tr>
+    <tr><td>Package Management</td><td>Install and update software</td></tr>
+    <tr><td>Networking</td><td>Configure network connectivity</td></tr>
+    <tr><td>SSH</td><td>Secure remote administration</td></tr>
+    <tr><td>Firewall</td><td>Protect servers</td></tr>
+    <tr><td>Logs</td><td>Troubleshoot system issues</td></tr>
+    <tr><td>Cron Jobs</td><td>Automate scheduled tasks</td></tr>
+    <tr><td>Shell Scripting</td><td>Automate administration</td></tr>
+    <tr><td>LVM</td><td>Flexible storage management</td></tr>
+    <tr><td>RAID</td><td>Fault tolerance and redundancy</td></tr>
+    <tr><td>Docker</td><td>Containerization</td></tr>
+    <tr><td>Ansible</td><td>Infrastructure Automation</td></tr>
+    <tr><td>Cloud</td><td>Modern server deployment</td></tr>
+  </tbody>
+</table>
 
----
+<hr>
 
-# 💼 Interview Questions
+<h2 id="-interview-questions">💼 Interview Questions</h2>
 
-### Q1. What is the role of a Linux Administrator?
+<details>
+  <summary><b>Q1. What is the role of a Linux Administrator?</b></summary>
+  <p><b>Answer:</b> A Linux Administrator installs, configures, secures, monitors, and maintains Linux servers while ensuring high availability and performance.</p>
+</details>
+<br>
+<details>
+  <summary><b>Q2. What is the difference between chmod and chown?</b></summary>
+  <table>
+    <tr><th>Command</th><th>Purpose</th></tr>
+    <tr><td><code>chmod</code></td><td>Changes file permissions</td></tr>
+    <tr><td><code>chown</code></td><td>Changes file ownership</td></tr>
+  </table>
+</details>
+<br>
+<details>
+  <summary><b>Q3. Which command is used to monitor running processes?</b></summary>
+  <p><b>Answer:</b> <code>top</code>, <code>htop</code>, <code>ps</code></p>
+</details>
+<br>
+<details>
+  <summary><b>Q4. Why is SSH important?</b></summary>
+  <p><b>Answer:</b> SSH provides secure encrypted remote access for managing Linux servers.</p>
+</details>
 
-**Answer:**
-A Linux Administrator installs, configures, secures, monitors, and maintains Linux servers while ensuring high availability and performance.
+<blockquote>
+  <b>⭐ Pro Tip:</b> The best way to become a Linux Administrator is to build hands-on labs. Practice on Ubuntu, Rocky Linux, or RHEL using VirtualBox or VMware, automate tasks with Bash and Ansible, deploy applications with Docker, and document every project on GitHub!
+</blockquote>
 
----
+<hr>
+<hr>
 
-### Q2. What is the difference between chmod and chown?
+<h1 id="-linux-user-account-management">👤 Linux User Account Management</h1>
 
-| Command | Purpose |
-|----------|----------|
-| chmod | Changes file permissions |
-| chown | Changes file ownership |
+<p>A comprehensive guide to managing <b>users, groups, passwords, and account security</b> in Linux.</p>
 
----
+<hr>
 
-### Q3. Which command is used to monitor running processes?
+<h2>👤 1. User Management</h2>
 
-**Answer:**
-
-```
-top
-htop
-ps
-```
-
----
-
-### Q4. Why is SSH important?
-
-**Answer:**
-SSH provides secure encrypted remote access for managing Linux servers.
-
----
-
-### Q5. What is LVM?
-
-**Answer:**
-Logical Volume Manager (LVM) provides flexible disk management, allowing logical volumes to be resized and managed dynamically.
-
----
-
-### Q6. What is RAID?
-
-**Answer:**
-RAID combines multiple disks to improve performance, redundancy, or fault tolerance depending on the RAID level used.
-
----
-
-### Q7. Why is Ansible used?
-
-**Answer:**
-Ansible automates configuration management, software deployment, and infrastructure provisioning across multiple servers.
-
----
-
-### Q8. Why should Linux Administrators learn Docker?
-
-**Answer:**
-Docker enables lightweight application deployment, portability, and easier management of containerized applications.
-
----
-
-> ⭐ **Pro Tip:** The best way to become a Linux Administrator is to build hands-on labs. Practice on Ubuntu, Rocky Linux, or RHEL using VirtualBox or VMware, automate tasks with Bash and Ansible, deploy applications with Docker, and document every project on GitHub to build a strong portfolio.
-
-# 👤 Linux User Account Management
-
-A comprehensive guide to managing **users, groups, passwords, and account security** in Linux. These are the fundamental administrative tasks every Linux Administrator should master.
-
----
-
-# 📚 Table of Contents
-
-- [User Management](#-1-user-management)
-- [Group Management](#-2-group-management)
-- [Password & Account Security](#-3-password--account-security)
-- [Important System Files](#-4-important-system-files)
-- [Useful Verification Commands](#-5-useful-verification-commands)
-- [Command Summary](#-command-summary)
-- [Quick Revision](#-quick-revision)
-- [Interview Questions](#-interview-questions)
-
----
-
-# 👤 1. User Management
-
-Linux stores every user as an individual account with a unique **User ID (UID)**. System administrators can create, modify, and delete these accounts using different commands.
-
----
-
-## ➕ useradd
-
-The `useradd` command is used to create a new user account.
-
-### Syntax
-
-```bash
-useradd username
-```
-
----
-
-### Common Options
-
-| Option | Purpose |
-|----------|---------|
-| `-g` | Assign a primary group |
-| `-s` | Specify the default shell |
-| `-c` | Add a comment or description |
-| `-m` | Create the user's home directory |
-| `-d` | Specify a custom home directory |
-
----
-
-### Examples
-
-Create a basic user
-
-```bash
-sudo useradd john
-```
-
-Create a user with a home directory
-
-```bash
+<details open>
+  <summary><b>➕ useradd (Create User)</b></summary>
+  <br>
+  <p>Syntax: <code>useradd username</code></p>
+  <table>
+    <thead>
+      <tr><th>Option</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>-g</code></td><td>Assign a primary group</td></tr>
+      <tr><td><code>-s</code></td><td>Specify the default shell</td></tr>
+      <tr><td><code>-c</code></td><td>Add a comment or description</td></tr>
+      <tr><td><code>-m</code></td><td>Create the user's home directory</td></tr>
+      <tr><td><code>-d</code></td><td>Specify a custom home directory</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <p><b>Examples:</b></p>
+  <pre><code>sudo useradd john
 sudo useradd -m john
-```
-
-Assign a primary group
-
-```bash
 sudo useradd -g developers john
-```
-
-Specify the default shell
-
-```bash
 sudo useradd -s /bin/bash john
-```
-
-Add a comment
-
-```bash
 sudo useradd -c "Web Administrator" john
-```
+sudo useradd -d /home/webadmin john</code></pre>
+</details>
 
-Create a custom home directory
+<br>
 
-```bash
-sudo useradd -d /home/webadmin john
-```
-
----
-
-## ❌ userdel
-
-The `userdel` command removes an existing user account.
-
-### Syntax
-
-```bash
-userdel username
-```
-
----
-
-### Common Options
-
-| Option | Purpose |
-|----------|---------|
-| `-r` | Delete the user and home directory |
-| `-f` | Force delete the user even if logged in |
-
----
-
-### Examples
-
-Delete a user
-
-```bash
-sudo userdel john
-```
-
-Delete user with home directory
-
-```bash
+<details open>
+  <summary><b>❌ userdel (Delete User)</b></summary>
+  <br>
+  <p>Syntax: <code>userdel username</code></p>
+  <table>
+    <thead>
+      <tr><th>Option</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>-r</code></td><td>Delete the user and home directory</td></tr>
+      <tr><td><code>-f</code></td><td>Force delete the user even if logged in</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <p><b>Examples:</b></p>
+  <pre><code>sudo userdel john
 sudo userdel -r john
-```
+sudo userdel -f john</code></pre>
+</details>
+
+<br>
+
+<details open>
+  <summary><b>✏️ usermod (Modify User)</b></summary>
+  <br>
+  <p>Modifies an existing user account (groups, shell, home directory, lock/unlock).</p>
+  <pre><code>sudo usermod username</code></pre>
+</details>
+
+<hr>
+
+<h2>👥 2. Group Management</h2>
+
+<table>
+  <thead>
+    <tr><th>Action</th><th>Command</th><th>Syntax</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Create Group</td><td><code>groupadd</code></td><td><code>sudo groupadd developers</code></td></tr>
+    <tr><td>Delete Group</td><td><code>groupdel</code></td><td><code>sudo groupdel developers</code></td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>🔐 3. Password & Account Security</h2>
+
+<table>
+  <thead>
+    <tr><th>Task</th><th>Command</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Set/Change Password</td><td><code>sudo passwd john</code></td></tr>
+    <tr><td>Lock Account</td><td><code>sudo usermod -L john</code></td></tr>
+    <tr><td>Unlock Account</td><td><code>sudo usermod -U john</code></td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>📂 4. Important System Files</h2>
+
+<table>
+  <thead>
+    <tr><th>File Path</th><th>Purpose / Description</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>/etc/passwd</code></td>
+      <td>Stores user account information (Username, UID, GID, Home Directory, Shell).</td>
+    </tr>
+    <tr>
+      <td><code>/etc/group</code></td>
+      <td>Stores group definitions, GIDs, and group members.</td>
+    </tr>
+    <tr>
+      <td><code>/etc/shadow</code></td>
+      <td>Stores encrypted passwords and password policies. <i>(Accessible only by root)</i></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>🔍 5. Useful Verification Commands</h2>
+
+<table>
+  <thead>
+    <tr><th>Command</th><th>Purpose</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>id &lt;username&gt;</code></td><td>Display user details (UID, GID, Groups)</td></tr>
+    <tr><td><code>whoami</code></td><td>Show current logged-in user</td></tr>
+    <tr><td><code>id</code></td><td>Display current user ID details</td></tr>
+    <tr><td><code>who</code></td><td>List logged-in users</td></tr>
+    <tr><td><code>last</code></td><td>Display user login history</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>💼 Account Management Interview Questions</h2>
+
+<details>
+  <summary><b>Q1. Difference between /etc/passwd and /etc/shadow?</b></summary>
+  <br>
+  <table>
+    <thead>
+      <tr><th>/etc/passwd</th><th>/etc/shadow</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Stores user account details</td><td>Stores encrypted passwords</td></tr>
+      <tr><td>Readable by all users</td><td>Accessible only by root</td></tr>
+      <tr><td>Contains UID, GID, Shell, Home path</td><td>Contains password hashes & expiry policies</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<br>
 
-Force delete user
-
-```bash
-sudo userdel -f john
-```
-
----
-
-## ✏️ usermod
-
-The `usermod` command modifies an existing user account.
-
-It can be used to:
-
-- Change groups
-- Change shell
-- Change home directory
-- Lock or unlock accounts
-- Rename users
-
-### Example
-
-```bash
-sudo usermod username
-```
-
----
-
-# 👥 2. Group Management
-
-Groups make permission management easier by allowing multiple users to share the same access rights.
-
----
-
-## ➕
-
-### groupadd
-
-Creates a new group.
-
-```bash
-sudo groupadd developers
-```
-
----
-
-## ❌
-
-### groupdel
-
-Deletes an existing group.
-
-```bash
-sudo groupdel developers
-```
-
----
-
-# 🔐 3. Password & Account Security
-
-Linux provides built-in commands to manage user authentication and account security.
-
----
-
-## 🔑 passwd
-
-Used to set or change a user's password.
-
-### Syntax
-
-```bash
-passwd username
-```
-
-Example
-
-```bash
-sudo passwd john
-```
-
----
-
-## 🔒 Lock User Account
-
-Prevent a user from logging in.
-
-```bash
-sudo usermod -L john
-```
-
----
-
-## 🔓 Unlock User Account
-
-Allow the user to log in again.
-
-```bash
-sudo usermod -U john
-```
-
----
-
-# 📂 4. Important System Files
-
-Linux stores user and group information inside specific configuration files.
-
----
-
-## 📄 /etc/passwd
-
-Stores user account information.
-
-Contains:
-
-- Username
-- UID
-- GID
-- Home Directory
-- Default Shell
-
-Example
-
-```text
-john:x:1001:1001:John:/home/john:/bin/bash
-```
-
----
-
-## 📄 /etc/group
-
-Stores information about system groups.
-
-Contains:
-
-- Group Name
-- Group ID
-- Group Members
-
-Example
-
-```text
-developers:x:1001:john
-```
-
----
-
-## 📄 /etc/shadow
-
-Stores encrypted passwords and password policies.
-
-Contains:
-
-- Encrypted Password
-- Password Expiration
-- Account Expiration
-- Password Aging Information
-
-Example
-
-```text
-john:$6$abcxyz........
-```
-
-⚠️ Only the **root user** can access this file.
-
----
-
-# 🔍 5. Useful Verification Commands
-
----
-
-## Display User Information
-
-```bash
-id username
-```
-
-Example
-
-```bash
-id john
-```
-
-Output
-
-```text
-uid=1001(john)
-gid=1001(john)
-groups=1001(john),1002(developers)
-```
-
----
-
-## Current Logged-in User
-
-```bash
-whoami
-```
-
----
-
-## Display Current User ID
-
-```bash
-id
-```
-
----
-
-## List Logged-in Users
-
-```bash
-who
-```
-
----
-
-## Display Login History
-
-```bash
-last
-```
-
----
-
-# 📋 Command Summary
-
-| Command | Purpose |
-|----------|----------|
-| `useradd` | Create a user |
-| `userdel` | Delete a user |
-| `usermod` | Modify user properties |
-| `groupadd` | Create a group |
-| `groupdel` | Delete a group |
-| `passwd` | Change user password |
-| `usermod -L` | Lock a user account |
-| `usermod -U` | Unlock a user account |
-| `id` | Display user information |
-| `whoami` | Show current user |
-| `who` | Show logged-in users |
-| `last` | Show login history |
-
----
-
-# 📖 Quick Revision
-
-| Topic | Purpose |
-|--------|----------|
-| useradd | Creates a new user |
-| userdel | Deletes an existing user |
-| usermod | Modifies user settings |
-| groupadd | Creates a group |
-| groupdel | Deletes a group |
-| passwd | Changes passwords |
-| /etc/passwd | Stores user account information |
-| /etc/group | Stores group information |
-| /etc/shadow | Stores encrypted passwords |
-| id | Displays user details |
-
----
-
-# 💼 Interview Questions
-
-### Q1. What is the purpose of the `useradd` command?
-
-**Answer:**
-
-The `useradd` command creates a new user account in Linux.
-
----
-
-### Q2. What is the difference between `useradd` and `usermod`?
-
-| useradd | usermod |
-|----------|----------|
-| Creates a new user | Modifies an existing user |
-
----
-
-### Q3. What does the `-m` option do in `useradd`?
-
-**Answer:**
-
-It automatically creates the user's home directory.
-
----
-
-### Q4. Which file stores encrypted passwords?
-
-**Answer:**
-
-```
-/etc/shadow
-```
-
----
-
-### Q5. Which file contains user account information?
-
-**Answer:**
-
-```
-/etc/passwd
-```
-
----
-
-### Q6. How do you lock a user account?
-
-**Answer:**
-
-```bash
-sudo usermod -L username
-```
-
----
-
-### Q7. How do you unlock a user account?
-
-**Answer:**
-
-```bash
-sudo usermod -U username
-```
-
----
-
-### Q8. Which command displays a user's UID, GID, and group membership?
-
-**Answer:**
-
-```bash
-id username
-```
-
----
-
-### Q9. What is the difference between `/etc/passwd` and `/etc/shadow`?
-
-| `/etc/passwd` | `/etc/shadow` |
-|---------------|---------------|
-| Stores user account information | Stores encrypted passwords |
-| Readable by all users | Accessible only by root |
-| Contains UID, GID, Home Directory, Shell | Contains password hashes and password aging information |
-
----
-
-> 💡 **Pro Tip:** Before modifying or deleting a user account, always verify the user's details using the `id username` command. This helps confirm the user's UID, GID, group memberships, and prevents accidental changes to the wrong account.
+<blockquote>
+  💡 <b>Pro Tip:</b> Before modifying or deleting a user account, always verify the user's details using the <code>id username</code> command to prevent accidental changes to the wrong account!
+</blockquote>
